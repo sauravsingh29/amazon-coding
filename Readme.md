@@ -1,1 +1,1 @@
-amazon coding challeneg
+amazon coding challenge
