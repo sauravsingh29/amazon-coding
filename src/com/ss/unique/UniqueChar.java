@@ -3,6 +3,8 @@
  */
 package com.ss.unique;
 
+import java.util.Scanner;
+
 /**
  * @author Saurav Singh
  *
@@ -10,7 +12,16 @@ package com.ss.unique;
 public class UniqueChar {
 
 	public static void main(String[] args) {
-		String inp = "saurav";
+		String inp;
+		Scanner scanner = null;
+		try{
+			scanner = new Scanner(System.in);
+			System.out.print("Please enter the string  to check :: ");
+			System.out.println("");
+			inp = scanner.next();
+		} finally {
+			scanner.close();
+		}
 		System.out.println(isUniqueChar(inp));
 		System.out.println(isUniqueCharByBooleans(inp));
 	}
