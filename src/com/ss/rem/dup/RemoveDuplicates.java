@@ -3,6 +3,8 @@
  */
 package com.ss.rem.dup;
 
+import java.util.Scanner;
+
 /**
  * @author Saurav Singh
  *
@@ -10,10 +12,29 @@ package com.ss.rem.dup;
 public class RemoveDuplicates {
 
 	public static void main(String[] args) {
-		String inp = "saurav"; //saurvingh
-		char[] cs = inp.toCharArray();
+		String inp;
+		Scanner scanner = null;
+		try {
+			scanner = new Scanner(System.in);
+			System.out.print("Please enter the string  for dups removal :: ");
+			System.out.println("");
+			inp = scanner.next();
+			System.out.println(new String(removeDups(inp.toCharArray())));
+		}
+		finally {
+			scanner.close();
+		}
+	}
+
+	private static char[] removeDups(char[] cs) {
 		int tail = 0;
 		int dup = 0;
+		if (cs == null) {
+			return cs;
+		}
+		if (cs.length < 2) {
+			return cs;
+		}
 		for (int i = 0; i < cs.length; i++) {
 			boolean found = false;
 			for (int j = 0; j < i; j++) {
@@ -31,11 +52,10 @@ public class RemoveDuplicates {
 				tail++;
 			}
 		}
-		System.out.println(new String(cs));
 		for (int i = dup; i > 0; i--) {
 			cs[cs.length - i] = 0;
 		}
-		System.out.println(new String(cs));
+		return cs;
 	}
 
 	public static String removeDuplicateWithBoolean(String s) {
